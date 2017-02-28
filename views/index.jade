@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    .site-wrap
+        .chat-list
+            ul
+                li message 1
+                li message 2
+        .chat-form
+            input(type='text', placeholder="message")
+    script(src="/socket.io/socket.io.js")
+    script(src="/javascripts/application.js")
