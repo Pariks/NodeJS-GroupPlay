@@ -64,4 +64,17 @@ const server = new http.Server(app);
 const io = socketIo(server);
 server.listen(8080, "127.0.0.1"); //very much important when using with express + socket.io
 
+io.on("connection", socket => {
+    console.log('Client connected');
+    socket.on("chat:add", data => {
+      console.log(data);
+      io.emit("chat:added", data);
+    });
+
+  /*  socket.on("disconnect", ()  => {
+      console.log("Socket Disconnected");
+    });*/
+});
+
+
 module.exports = app;
